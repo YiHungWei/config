@@ -1,0 +1,23 @@
+[user]
+    name = Yi-Hung Wei
+    email = yihung.wei@gmail.com
+
+[core]
+    editor = vim
+    abbrev = 12
+
+[alias]
+    logp = log --pretty='%C(auto) %ad %h %s' --date=short
+    cp = cherry-pick
+    co = checkout
+    st = stash
+    tc = tag --contains
+    fromkern = am -p3 --directory=datapath/ --reject
+
+[sendemail]
+    from = Yi-Hung Wei <yihung.wei@gmail.com>
+    smtpserver = smtp.gmail.com
+    smtpuser = yihung.wei@gmail.com
+    smtpencryption = tls
+    smtpserverport = 587
+    supprescc = self
