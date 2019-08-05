@@ -8,6 +8,9 @@
 
 [alias]
     logp = log --pretty='%C(auto) %ad %h %s' --date=short
+    lg = log --pretty='%C(auto) %ad %h %s' --date=short
+    logr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
+    lr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
     cp = cherry-pick
     co = checkout
     st = stash
