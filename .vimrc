@@ -48,3 +48,18 @@ function! ToogleSpellCheck()
     endif
 endfunction
 map <F9> :call ToogleSpellCheck()<CR>
+
+" Map <F10> to toggle line number
+let g:myNum = 0
+function! ToogleNumber()
+    if g:myNum == 0
+        set number
+        let g:myNum = 1
+        echo "set number"
+    else
+        set nonumber
+        let g:myNum = 0
+        echo "set nonumber"
+    endif
+endfunction
+map <F10> :call ToogleNumber()<CR>
