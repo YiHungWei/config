@@ -11,6 +11,8 @@
     lg = log --pretty='%C(auto) %ad %h %s' --date=short
     logr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
     lr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
+    bh = branch
+    bhd = branch -D
     cp = cherry-pick
     co = checkout
     st = stash
