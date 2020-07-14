@@ -7,17 +7,18 @@
     abbrev = 12
 
 [alias]
-    logp = log --pretty='%C(auto) %ad %h %s' --date=short
-    lg = log --pretty='%C(auto) %ad %h %s' --date=short
-    logr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
-    lr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
     bh = branch
     bhd = branch -D
     cp = cherry-pick
     co = checkout
+    fromkern = am -p3 --directory=datapath/ --reject
+    logp = log --pretty='%C(auto) %ad %h %s' --date=short
+    lg = log --pretty='%C(auto) %ad %h %s' --date=short
+    logr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
+    lr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
+    rst = reset --hard HEAD
     st = stash
     tc = tag --contains
-    fromkern = am -p3 --directory=datapath/ --reject
 
 [sendemail]
     from = Yi-Hung Wei <yihung.wei@gmail.com>
