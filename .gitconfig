@@ -17,7 +17,8 @@
     logr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
     lr = log --pretty='%C(auto) %ad %h %s' --date=short --reverse
     rst = reset --hard HEAD
-    st = stash
+    st = status
+    sth = stash
     tc = tag --contains
 
 [sendemail]
