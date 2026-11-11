@@ -2,19 +2,16 @@
 
 Personal dotfiles: `.tmux.conf`, `.vimrc`, `.gitconfig`.
 
-## tmux
-
-### Setup
+## Quick Start (New Machine)
 
 ```bash
 git clone git@github.com:YiHungWei/config.git ~/git/config
-ln -sf ~/git/config/.tmux.conf ~/.tmux.conf
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cd ~/git/config && ./setup.sh
 ```
 
-Start `tmux`, then press `Ctrl-a I` to install plugins.
+`setup.sh` symlinks all dotfiles to `$HOME`, installs TPM, and installs tmux plugins automatically.
 
-If tmux was already running, reload with `tmux source-file ~/.tmux.conf`.
+## tmux
 
 ### Terminal settings
 
@@ -59,14 +56,6 @@ is active.
 
 ## vim
 
-### Setup
-
-```bash
-ln -sf ~/git/config/.vimrc ~/.vimrc
-```
-
-### Customizations
-
 Built on top of Vim's own `defaults.vim` (syntax highlighting, filetype
 indent, incremental search, return to last edit position, ...).
 
@@ -79,14 +68,6 @@ indent, incremental search, return to last edit position, ...).
 | Mouse | `mouse=a` | Click, scroll, select, resize splits. Hold `Option` (iTerm2) / `Shift` (Windows Terminal) to use the terminal's own selection |
 | Mouse | `ttymouse=sgr` | Makes split dragging and wide screens work inside tmux |
 | Indent | `expandtab shiftwidth=4 softtabstop=4` | Tab inserts 4 spaces; Backspace deletes 4. Existing tabs display at the standard width 8. Per-language settings may override (Go, Makefile) |
-| Indent | `<F8>` | Toggle current buffer between spaces (4) and real tabs (8) |
-| Spell | `<F9>` | Toggle English (`en_us`) spell check on/off |
-| UI | `<F10>` | Toggle line numbers on/off (off by default) |
-
-## git
-
-### Setup
-
-```bash
-ln -sf ~/git/config/.gitconfig ~/.gitconfig
-```
+| Indent | `<F7>` | Toggle current buffer between spaces (4) and real tabs (8) |
+| Spell | `<F8>` | Toggle English (`en_us`) spell check on/off |
+| UI | `<F9>` | Toggle line numbers on/off (off by default) |
