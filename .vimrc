@@ -1,65 +1,42 @@
-" Global setting
-:set hlsearch                           " highlight search
-:set laststatus=2                       " Always show the statusline
-:set mouse=a
-:set tabstop=4 expandtab shiftwidth=4
+" ~/.vimrc
 
-" Return to last edit position when opening files
-augroup ReturnLastEdited
-    autocmd!
-    autocmd BufReadPost *
-         \ if line("'\"") > 0 && line("'\"") <= line("$") |
-         \   exe "normal! g`\"" |
-         \ endif
-augroup END
+" Load Vim's defaults.vim (syntax, filetype indent, ...); a ~/.vimrc disables it.
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
-" Map <F8> to toggle tabs to spaces
-let g:taboptions = 'on'
-function! ToggleTabsToSpaces()
-    if g:taboptions == 'off'
-        " set nolist
-        set expandtab
-        set tabstop=4
-        set shiftwidth=4
-        let g:taboptions = 'on'
-        echo "expandtab=on"
-    else
-        " set list
-        set noexpandtab
-        set tabstop=8
-        set shiftwidth=8
-        let g:taboptions = 'off'
-        echo "expandtab=off"
-    endif
+" --- Search ---
+set hlsearch                                    " highlight all matches
+set ignorecase smartcase                        " case-insensitive unless uppercase typed
+" Ctrl-l: clear highlight
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+
+" --- UI ---
+set laststatus=2                                " always show the status line
+
+" --- Mouse ---
+set mouse=a                                     " mouse in all modes
+if has('mouse_sgr')
+  set ttymouse=sgr                              " fix drag/wide screens in tmux
+endif
+
+" --- Indentation (filetype plugins may override, e.g. Go/Makefile use tabs) ---
+set expandtab                                   " Tab key inserts spaces
+set shiftwidth=4                                " indent width for >>, <<, auto-indent
+set softtabstop=4                               " Tab/Backspace move by 4 spaces
+
+" F8: toggle between spaces (4) and tabs (8)
+function! ToggleTabs() abort
+  if &expandtab
+    setlocal noexpandtab shiftwidth=8 softtabstop=0
+  else
+    setlocal expandtab shiftwidth=4 softtabstop=4
+  endif
+  setlocal expandtab?
 endfunction
-map <F8> :call ToggleTabsToSpaces()<CR>
+nnoremap <F8> :call ToggleTabs()<CR>
 
-" Map <F9> to toggle speel check
-let g:myLang = 0
-function! ToogleSpellCheck()
-    if g:myLang == 0
-        set spell spelllang=en_us
-        let g:myLang = 1
-        echo "set spell spelllang=en_us"
-    else
-        set spell nospell
-        let g:myLang = 0
-        echo "set spell nospell"
-    endif
-endfunction
-map <F9> :call ToogleSpellCheck()<CR>
+" F9: toggle spell check (en_us)
+nnoremap <F9> :setlocal spell! spelllang=en_us<CR>:setlocal spell?<CR>
 
-" Map <F10> to toggle line number
-let g:myNum = 0
-function! ToogleNumber()
-    if g:myNum == 0
-        set number
-        let g:myNum = 1
-        echo "set number"
-    else
-        set nonumber
-        let g:myNum = 0
-        echo "set nonumber"
-    endif
-endfunction
-map <F10> :call ToogleNumber()<CR>
+" F10: toggle line numbers
+nnoremap <F10> :set number!<CR>:set number?<CR>
