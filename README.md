@@ -82,3 +82,11 @@ indent, incremental search, return to last edit position, ...).
 | Indent | `<F8>` | Toggle current buffer between spaces (4) and real tabs (8) |
 | Spell | `<F9>` | Toggle English (`en_us`) spell check on/off |
 | UI | `<F10>` | Toggle line numbers on/off (off by default) |
+
+## git
+
+### Setup
+
+```bash
+ln -sf ~/git/config/.gitconfig ~/.gitconfig
+```

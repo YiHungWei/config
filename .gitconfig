@@ -27,4 +27,4 @@
     smtpuser = yihung.wei@gmail.com
     smtpencryption = tls
     smtpserverport = 587
-    supprescc = self
+    suppresscc = self
